@@ -1,0 +1,58 @@
+GitHub Workflow - YAML GitHub Workflow (github-workflow.json)
+name: Run Cypress Tests
+
+on:
+  push:
+   branches: [main]
+  pull_requests:
+   branches: [main]
+
+jobs:
+  cypress-run:
+   runs-on: Windows 11 Home
+
+   steps:
+   # Step 1: Checkout the code
+   - name: Checkout repository
+   - uses: actions/checkout@v8
+
+   # Step 2: Setup Node.js
+   - name: Setup Node
+   - uses: actions/setup-node@v8
+     with:
+       node-version: 25
+       cache: 'npm'
+
+   # Step 3: Install dependencies
+   - name: Install dependencies
+     run: npm ci
+
+   # Step 4: Run Cypress tests
+   - name: Run Cypress tests
+   - run: npx cypress run
+     continue-on-error: true    # Continue to artifact upload even if tests fail
+
+   # Step 5: Upload screenshots if tests failed
+   - name: Upload Cypress screenshots
+     if: failure()
+     uses: actions/upload-artifact@v8
+     with:
+       name: cypress-screenshots
+       path: cypress/screenshots
+
+    # Step 6: Upload videos if tests failed
+    - name: Upload Cypress videos
+      if: failure()
+      uses: actions/upload-artifact@v8
+      with:
+	      name: cypress-videos
+        path: cypress/videos
+
+    # Step 7: (Optional): Always save test results
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v8
+      with:
+        name: cypress-results
+        path: cypress/results
+        if-no-files-found: ignore
