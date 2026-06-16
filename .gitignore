@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Cypress artifacts
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Test reports
+cypress/reports/
+mochawesome-report/
+
+# Environment files
+cypress.env.json
+.env
+.env.*
+
+# Coverage reports
+coverage/
+
+# Build artifacts
+dist/
+build/
+
+# IDE
+.vscode/
+
+# Logs
+*.log
