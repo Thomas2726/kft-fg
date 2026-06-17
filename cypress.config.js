@@ -1,9 +1,39 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true
   },
+
+  e2e: {
+    baseUrl: 'https://admin.detect.kifiya.dev/',
+
+    setupNodeEvents(on, config) {
+
+      // 🔥 Allure plugin
+      require('@shelex/cypress-allure-plugin/writer')(on, config);
+
+      return config;
+    },
+
+    env: {
+      allure: true
+    },  
+
+    viewportWidth: 1280,
+    viewportHeight: 720,
+
+    video: true,
+    screenshotOnRunFailure: true,
+
+    retries: {
+      runMode: 2,
+      openMode: 0
+    }
+  }
 });

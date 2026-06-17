@@ -8,6 +8,9 @@ describe('Fraud Detection using AI Fraud Model', () => {
   })
   
   it('Select Customer and Score with AI Model', function() {
+
+    cy.allure().tag('smoke');
+    cy.allure().severity('critical');
        
     cy.loginCoop()
     
