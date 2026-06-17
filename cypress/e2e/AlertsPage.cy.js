@@ -7,6 +7,10 @@ describe('Alerts management', () => {
     })
   })
 
+  beforeEach(() => {
+    cy.login();
+  });
+
   it('Access Alerts page', function() {
 
     cy.loginCoop()

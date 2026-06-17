@@ -7,6 +7,10 @@ describe('Login to fraud guard', () => {
     })
   })
 
+  beforeEach(() => {
+      cy.login();
+    });
+
   it('Access and login to fraud guard', () => {
     cy.visit('https://admin.detect.kifiya.dev/auth')
     cy.get('#login-username').type('coopadmin')

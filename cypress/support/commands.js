@@ -29,6 +29,33 @@ Cypress.Commands.add('loginCoop', function() {
 
 })
 
+Cypress.Commands.add('login', () => {
+  cy.session('user-session', () => {
+
+    cy.visit('/login');
+
+    cy.get('#login-username')
+      .type(this.data.email);
+
+    cy.get('#login-password')
+      .type(this.data.password);
+
+    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
+    cy.get('@TenantSelector')
+      .select(this.data.tenant) //Select Coop tenant
+
+    //Assertion
+    cy.get('@TenantSelector')
+      .select(this.data.tenant)
+      .should('have.value', 'COOP')
+
+    //Click Login and Assert
+    cy.get('.inline-flex')
+      .click();
+    cy.url().should('include', '/dashboard')
+  });
+});
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

@@ -6,6 +6,10 @@ describe('Tests on Cases Page', () => {
         })
     })
 
+    beforeEach(() => {
+      cy.login();
+    });
+
     it('Access Cases Page', () => {
         cy.visit('https://admin.detect.kifiya.dev/auth')
         cy.get('#login-username').type('coopadmin')
