@@ -12,21 +12,7 @@ describe('Login to fraud guard', () => {
     });
 
   it('Access and login to fraud guard', () => {
-    cy.visit('https://admin.detect.kifiya.dev/auth')
-    cy.get('#login-username').type('coopadmin')
-    cy.get('#login-password').type('coopadmin_123')
-    
-    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-    cy.get('@TenantSelector').select('COOP') //Select Coop tenant
-
-    //Assertion
-    cy.get('@TenantSelector')
-      .select('COOP')
-      .should('have.value', 'COOP')
-
-    //Click Login and Assert
-    cy.get('.inline-flex').click()
-    cy.url().should('include', '/dashboard')
+    cy.loginCoop()
 
   })
 

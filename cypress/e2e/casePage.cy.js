@@ -11,22 +11,7 @@ describe('Tests on Cases Page', () => {
     });
 
     it('Access Cases Page', () => {
-        cy.visit('https://admin.detect.kifiya.dev/auth')
-        cy.get('#login-username').type('coopadmin')
-        cy.get('#login-password').type('coopadmin_123')
-        
-        cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-        cy.get('@TenantSelector').select('COOP') //Select Coop tenant
-
-        //Assert the selection is coop
-        cy.get('@TenantSelector')
-          .select('COOP')
-          .should('have.value', 'COOP')
-
-        //Click Login and Assert
-        cy.get('.inline-flex').click()
-        cy.url().should('include', '/dashboard')
-        
+                
         //Click Cases tab
         cy.wait(1000)
         cy.get('[href="/cases"] > .inline-flex').click()
