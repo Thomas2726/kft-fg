@@ -12,6 +12,8 @@
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "allure-commandline": "^2.42.1",
+    "allure-cypress": "^3.10.0",
+    "allure-js-commons": "^3.10.0",
     "cypress": "^15.9.0",
     "mochawesome": "^7.1.4",
     "mochawesome-merge": "^5.1.1",
