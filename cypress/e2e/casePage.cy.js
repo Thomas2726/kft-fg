@@ -11,7 +11,8 @@ describe('Tests on Cases Page', () => {
     });
 
     it('Access Cases Page', () => {
-                
+        cy.loginCoop(); 
+        
         //Click Cases tab
         cy.wait(1000)
         cy.get('[href="/cases"] > .inline-flex').click()

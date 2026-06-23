@@ -12,7 +12,7 @@ describe('Login to fraud guard', () => {
     });
 
   it('Access and login to fraud guard', () => {
-    cy.loginCoop()
+    cy.loginCoop();
 
   })
 
@@ -21,7 +21,7 @@ describe('Login to fraud guard', () => {
 describe('Evaluate a customer', () => {
 
   it('Check if there are available providers', () => {
-    cy.loginCoop()
+    cy.loginCoop();
     
     //Click on Providers tab
     cy.get('[href="/providers"] > .inline-flex > .text-sm').click()

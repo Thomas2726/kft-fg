@@ -12,7 +12,8 @@ describe('Alerts management', () => {
   });
 
   it('Access Alerts page', function() {
-
+    cy.loginCoop();
+    
     cy.allure().tag('smoke');
     cy.allure().severity('critical');
 
