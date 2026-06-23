@@ -11,7 +11,7 @@
 //
 // -- This is a parent command --
 Cypress.Commands.add('loginCoop', function() {
-    cy.visit('https://admin.detect.kifiya.dev/')
+    cy.visit('https://fraud-detection.development.kifiya.dev/');
     cy.get('#login-username').type(this.data.email)
     cy.get('#login-password').type(this.data.password)
         
@@ -32,7 +32,7 @@ Cypress.Commands.add('loginCoop', function() {
 Cypress.Commands.add('login', () => {
   cy.session('user-session', () => {
 
-    cy.visit('/login');
+    cy.visit('https://fraud-detection.development.kifiya.dev/auth');
 
     cy.get('#login-username')
       .type(this.data.email);

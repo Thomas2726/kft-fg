@@ -11,7 +11,7 @@ module.exports = defineConfig({
   },
 
   e2e: {
-    baseUrl: 'https://admin.detect.kifiya.dev/',
+    baseUrl: 'https://fraud-detection.development.kifiya.dev/',
 
     setupNodeEvents(on, config) {
 
