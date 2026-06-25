@@ -9,7 +9,7 @@ describe('Fraud Detection using AI Fraud Model', () => {
             this.data = data;
         });
     });
-
+    
     it('Select Customer and Score with AI Model', function () {
 
         cy.loginCoop();
