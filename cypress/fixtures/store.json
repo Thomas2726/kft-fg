@@ -1,5 +1,5 @@
 {
-    "email" : "tom", //coopadmin
-    "password" : "1qazXSW@1qaz", //coopadmin_123
-    "tenant" : "COOP"
+  "email": "tom",
+  "password": "1qazXSW@1qaz",
+  "tenant": "COOP"
 }
