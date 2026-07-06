@@ -19,10 +19,10 @@ describe('Fraud Detection using AI Fraud Model', () => {
         cy.url().should('include', '/ai-model');
 
         // Specific model 
-//aiModelPage.selectModel('Ensemble');
+        //aiModelPage.selectModel('Ensemble');
 
-// Random model
-aiModelPage.selectModel();
+        // Random model
+        aiModelPage.selectModel();
 
         const payload = `{
             "customer_id": "6717c88bd61294bcf18ca44b"
