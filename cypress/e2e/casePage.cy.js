@@ -119,22 +119,7 @@ describe('Tests on Cases Page', () => {
   })
 
   it.only('Close a resolved case', () => {
-        cy.visit('https://fraud-detection.development.kifiya.dev/')
-        cy.get('#login-username').type('coopadmin')
-        cy.get('#login-password').type('coopadmin_123')
-        
-        cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-        cy.get('@TenantSelector').select('COOP') //Select Coop tenant
-
-        //Assert the selection is coop
-        cy.get('@TenantSelector')
-          .select('COOP')
-          .should('have.value', 'COOP')
-
-        //Click Login and Assert
-        cy.get('.inline-flex').click()
-        cy.wait(5000)
-        cy.url().should('include', '/dashboard')
+        cy.loginCoop();
         
         //Click Cases tab
         cy.wait(1000)

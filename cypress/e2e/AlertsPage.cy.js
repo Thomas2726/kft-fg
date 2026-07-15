@@ -157,21 +157,7 @@ describe('Alerts management', () => {
 
   it.only('Transfer assigned Alert to another Fraud Analyst', function() {
     
-    cy.visit('https://admin.detect.kifiya.dev/auth')
-    cy.get('#login-username').type(this.data.email)
-    cy.get('#login-password').type(this.data.password)
-    
-    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-    cy.get('@TenantSelector').select(this.data.tenant) //Select Coop tenant
-    
-    //Assertion to check the selection of coop tenant
-    cy.get('@TenantSelector')
-      .select(this.data.tenant)
-      .should('have.value', 'COOP')
-    
-    //Click Login and Assert the login
-    cy.get('.inline-flex').click()
-    cy.url().should('include', '/dashboard')
+    cy.loginCoop();
     
     //Click Alerts tab
     cy.get('[href="/alerts"] > .inline-flex > .text-sm').click()
@@ -260,21 +246,7 @@ describe('Alerts management', () => {
 
   it('Close an alert', function() {
     
-    cy.visit('https://fraud-detection.development.kifiya.dev/')
-    cy.get('#login-username').type(this.data.email)
-    cy.get('#login-password').type(this.data.password)
-    
-    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-    cy.get('@TenantSelector').select(this.data.tenant) //Select Coop tenant
-    
-    //Assertion
-    cy.get('@TenantSelector')
-      .select(this.data.tenant)
-      .should('have.value', 'COOP')
-    
-    //Click Login and Assert
-    cy.get('.inline-flex').click()
-    cy.url().should('include', '/dashboard')
+    cy.loginCoop();
     
     //Click Alerts tab
     cy.get('[href="/alerts"] > .inline-flex > .text-sm').click()

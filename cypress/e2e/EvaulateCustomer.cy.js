@@ -40,22 +40,7 @@ describe('Evaluate a customer', () => {
   })
 
   it('Check if there are available rules', () => {
-    cy.visit('https://fraud-detection.development.kifiya.dev/')
-    cy.get('#login-username').type('coopadmin')
-    cy.get('#login-password').type('coopadmin_123')
-    
-    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-    cy.get('@TenantSelector').select('COOP') //Select Coop tenant
-    
-    //Assertion
-    cy.get('@TenantSelector')
-      .select('COOP')
-      .should('have.value', 'COOP')
-    
-    //Click Login and Assert
-    cy.get('.inline-flex').click()
-    cy.wait(2000)
-    cy.url().should('include', '/dashboard')
+    cy.loginCoop(); 
     
     //Click on Providers tab
     cy.get('[href="/rules"] > .inline-flex > .text-sm').click()
@@ -63,7 +48,7 @@ describe('Evaluate a customer', () => {
     
     cy.wait(4000)
     //cy.get('.lg\:grid-cols-3').should('have.length', 2)
-    cy.get('.mt-4.text-sm.text-muted-foreground') //locate availalbe providers
+    cy.get('.mt-4.text-sm.text-muted-foreground') //locate availalbe rules
     
     //Assert the number of listed providers
     //cy.get('.mt-4.text-sm.text-muted-foreground').should('have.value', '') 
@@ -74,22 +59,7 @@ describe('Evaluate a customer', () => {
   })
 
   it('Evaluate a blocked customer based on a published rule', () => {
-    cy.visit('https://fraud-detection.development.kifiya.dev/')
-    cy.get('#login-username').type('coopadmin')
-    cy.get('#login-password').type('coopadmin_123')
-    
-    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-    cy.get('@TenantSelector').select('COOP') //Select Coop tenant
-    
-    //Assertion
-    cy.get('@TenantSelector')
-      .select('COOP')
-      .should('have.value', 'COOP')
-    
-    //Click Login and Assert
-    cy.get('.inline-flex').click()
-    cy.wait(2000)
-    cy.url().should('include', '/dashboard')
+    cy.loginCoop();
 
     //Access Evaluage page  
     cy.get('[href="/evaluate"] > .inline-flex').click()
@@ -148,22 +118,7 @@ describe('Evaluate a customer', () => {
   })
 
   it('Evaluate a safe customer based on a published rule', () => {
-    cy.visit('https://fraud-detection.development.kifiya.dev/')
-    cy.get('#login-username').type('coopadmin')
-    cy.get('#login-password').type('coopadmin_123')
-    
-    cy.get('#login-tenant').as('TenantSelector') //Aliasing the tenant selection
-    cy.get('@TenantSelector').select('COOP') //Select Coop tenant
-    
-    //Assertion
-    cy.get('@TenantSelector')
-      .select('COOP')
-      .should('have.value', 'COOP')
-    
-    //Click Login and Assert
-    cy.get('.inline-flex').click()
-    cy.wait(2000)
-    cy.url().should('include', '/dashboard')
+    cy.loginCoop();
 
     //Access Evaluage page  
     cy.get('[href="/evaluate"] > .inline-flex').click()
