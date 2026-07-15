@@ -1,15 +1,14 @@
 describe('Alerts management', () => {
 
-  before(function(){
-    cy.fixture('store').then(function(data)
-    {
-      this.data=data 
-    })
-  })
-
-  beforeEach(() => {
-    cy.login();
+  before(function () {
+        cy.fixture('store').then((data) => {
+            this.data = data;
+        });
   });
+
+  /*beforeEach(function () {
+    cy.login();
+  });*/
 
   it('Access Alerts page', function() {
     cy.loginCoop();
@@ -17,7 +16,7 @@ describe('Alerts management', () => {
     cy.allure().tag('smoke');
     cy.allure().severity('critical');
 
-    cy.loginCoop()
+    //cy.loginCoop()
     
     //Click Alerts tab
     cy.get('[href="/alerts"] > .inline-flex > .text-sm').click()

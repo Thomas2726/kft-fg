@@ -1,16 +1,12 @@
 describe('Login to fraud guard', () => {
 
-  before(function(){
-    cy.fixture('store').then(function(data)
-    {
-      this.data=data 
-    })
-  })
+  before(function () {
+        cy.fixture('store').then((data) => {
+            this.data = data;
+        });
+  });
 
-  beforeEach(() => {
-      cy.login();
-    });
-
+ 
   it('Access and login to fraud guard', () => {
     cy.loginCoop();
 
@@ -19,6 +15,12 @@ describe('Login to fraud guard', () => {
 })
 
 describe('Evaluate a customer', () => {
+
+  before(function () {
+        cy.fixture('store').then((data) => {
+            this.data = data;
+        });
+  });
 
   it('Check if there are available providers', () => {
     cy.loginCoop();

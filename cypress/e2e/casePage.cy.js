@@ -1,14 +1,14 @@
 describe('Tests on Cases Page', () => {
-    before(function(){
-        cy.fixture('store').then(function(data)
-        {
-          this.data=data 
-        })
-    })
-
-    beforeEach(() => {
-      cy.login();
+    
+    before(function () {
+        cy.fixture('store').then((data) => {
+            this.data = data;
+        });
     });
+
+    /*beforeEach(() => {
+      cy.login();
+    });*/
 
     it('Access Cases Page', () => {
         cy.loginCoop(); 
