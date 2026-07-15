@@ -40,7 +40,7 @@ describe('Evaluate a customer', () => {
   })
 
   it('Check if there are available rules', () => {
-    cy.visit('https://admin.detect.kifiya.dev/auth')
+    cy.visit('https://fraud-detection.development.kifiya.dev/')
     cy.get('#login-username').type('coopadmin')
     cy.get('#login-password').type('coopadmin_123')
     
@@ -74,7 +74,7 @@ describe('Evaluate a customer', () => {
   })
 
   it('Evaluate a blocked customer based on a published rule', () => {
-    cy.visit('https://admin.detect.kifiya.dev/auth')
+    cy.visit('https://fraud-detection.development.kifiya.dev/')
     cy.get('#login-username').type('coopadmin')
     cy.get('#login-password').type('coopadmin_123')
     
@@ -148,7 +148,7 @@ describe('Evaluate a customer', () => {
   })
 
   it('Evaluate a safe customer based on a published rule', () => {
-    cy.visit('https://admin.detect.kifiya.dev/auth')
+    cy.visit('https://fraud-detection.development.kifiya.dev/')
     cy.get('#login-username').type('coopadmin')
     cy.get('#login-password').type('coopadmin_123')
     

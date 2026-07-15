@@ -119,7 +119,7 @@ describe('Tests on Cases Page', () => {
   })
 
   it.only('Close a resolved case', () => {
-        cy.visit('https://admin.detect.kifiya.dev/auth')
+        cy.visit('https://fraud-detection.development.kifiya.dev/')
         cy.get('#login-username').type('coopadmin')
         cy.get('#login-password').type('coopadmin_123')
         

@@ -260,7 +260,7 @@ describe('Alerts management', () => {
 
   it('Close an alert', function() {
     
-    cy.visit('https://admin.detect.kifiya.dev/auth')
+    cy.visit('https://fraud-detection.development.kifiya.dev/')
     cy.get('#login-username').type(this.data.email)
     cy.get('#login-password').type(this.data.password)
     
